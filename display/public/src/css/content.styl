@@ -1,0 +1,213 @@
+.container
+  contentContainer()
+  background-color transparent
+  .content-mesure
+    display flex
+    flex-wrap wrap
+    flex 1
+    justify-content space-between
+    align-items center
+    box-sizing border-box
+    padding 2em
+    transition all 1s ease
+    svg
+      transition all 1s ease
+    &.temperature
+      background-color $temperature-bgcolor
+      color $temperature-color
+      svg
+        fill $temperature-color
+      .mesure-detail
+        footer
+          a
+            background-color $temperature-color
+            color $temperature-bgcolor
+    &.humidity
+      background-color $humidity-bgcolor
+      color $humidity-color
+      svg
+        fill $humidity-color
+      .mesure-detail
+        footer
+          a
+            background-color $humidity-color
+            color $humidity-bgcolor
+    &.air-quality
+      background-color $air-quality-bgcolor
+      color $air-quality-color
+      svg
+        fill $air-quality-color
+      .mesure-detail
+        footer
+          a
+            background-color $air-quality-color
+            color $air-quality-bgcolor
+    &.notification
+      contentContainer()
+      infoContent($notification-color)
+      top 0
+      flex 0
+      font-size 0
+      height 0
+      svg
+        fill $notification-color
+      .mesure-detail
+        footer
+          a
+            background-color $air-quality-color
+            color $air-quality-bgcolor
+    .iconContainer
+      width 14vw
+      text-align center
+    .mesure-value
+      flex 2
+      padding-left 1em
+      font-size 4em
+      font-weight 200
+    .mesure-resume
+      font-size 2em
+      font-weight 200
+    .mesure-detail
+      display none
+      width 100vw
+      height 0
+      overflow hidden
+      margin 1em 0 0
+      transition all 1s ease
+      p
+        min-height 8em
+        line-height 1.2em
+        font-size 0.80em
+      footer
+        flex 1
+        a
+          display block
+          padding 0 1.5em
+          line-height 1.5em
+          font-size 1.35em
+          float right
+  &.detail
+    & .content-mesure.expand
+        flex 3
+    & .content-mesure:not(.expand)
+      flex 0
+      font-size 0
+      svg
+        height 0
+.sad .container
+  border-radius 10% 10% 0 0
+// Variant for detailed view mainly background colors changes
+.temperature .container
+  .content-mesure
+    &.temperature
+      expand-text-detail()
+    &.humidity,
+    &.air-quality,
+    &.notification
+      close-text-detail()
+
+.humidity .container
+  .content-mesure
+    &.humidity
+      expand-text-detail()
+    &.temperature,
+    &.air-quality,
+    &.notification
+      close-text-detail()
+
+.air_quality .container
+  .content-mesure
+    &.air-quality
+      expand-text-detail()
+    &.temperature,
+    &.humidity,
+    &.notification
+      close-text-detail()
+
+.notification .container
+  .content-mesure
+    &.notification
+      font-size inherit
+      height calc(100vh - 40vh)
+      expand-text-detail()
+    &.temperature,
+    &.humidity,
+    &.air-quality
+      close-text-detail()
+.notification-box
+  position absolute
+  bottom 5vh
+  right 5vh
+  transform translateY(-50px)
+  transition all 2s ease-in-out
+  animation-name float
+  animation-duration 2s
+  animation-timing-function ease-in-out
+  animation-iteration-count infinite
+  &.clicked
+      opacity 0
+      -webkit-transform translateY(-60px)
+      -moz-transform translateY(-60px)
+      -ms-transform translateY(-60px)
+      transform translateY(-60px)
+  .navigation-trigger
+    background white
+    text-decoration none
+    padding 1em
+    margin 10px
+    position relative
+    vertical-align middle
+    text-align center
+    display inline-block
+    border-radius 5px
+    & .btn__badge
+      color $notification-color
+      font-size 12px
+      position absolute
+      top -10px
+      right -10px
+      padding 5px 8px
+      border-radius 15px
+      background $notification-bgcolor
+
+
+
+@-webkit-keyframes float {
+  from {
+    -webkit-transform: translateY(0);
+    transform: translateY(0); }
+  50% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px); }
+  to {
+    -webkit-transform: translateY(0);
+    transform: translateY(0); } }
+
+@-moz-keyframes float {
+  from {
+    -moz-transform: translateY(0);
+    transform: translateY(0); }
+  50% {
+    -moz-transform: translateY(-10px);
+    transform: translateY(-10px); }
+  to {
+    -moz-transform: translateY(0);
+    transform: translateY(0); }
+}
+
+@keyframes float {
+  from {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+  to {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    transform: translateY(0); }
+}

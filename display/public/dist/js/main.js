@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "./dist";
+/******/ 	__webpack_require__.p = "./";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -42,16 +42,31 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	
 	__webpack_require__(1);
 
-/***/ },
+	var $eye = $('.eye');
+	function eyeBlink() {
+	    $eye.addClass('eyeBlink').bind('oanimationend animationend webkitAnimationEnd', function () {
+	        $eye.removeClass('eyeBlink');
+	    });
+	}
+
+	(function loop() {
+	    var rand = Math.round(Math.random() * 10000) + 3000;
+	    setTimeout(function () {
+	        eyeBlink();
+	        loop();
+	    }, rand);
+	})();
+
+/***/ }),
 /* 1 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
-/***/ }
+/***/ })
 /******/ ]);

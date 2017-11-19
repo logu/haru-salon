@@ -1,0 +1,124 @@
+@keyframes blink
+  0%
+    transform scale(1)
+  50%
+    transform scale(1, .01)
+  60%
+    transform scale(1)
+blink()
+  &:before,
+  &:after
+    transform-origin center
+    animation blink 300ms cubic-bezier(0.670, -0.440, 0.340, 1.475)
+
+@keyframes breath
+  50%
+    transform translateY(-0.5%)
+breath()
+  animation breath 5s cubic-bezier(0.670, -0.440, 0.340, 1.475) infinite
+
+// this mixin is used when Haru is happy
+smile()
+  &:before
+    left: -17%
+    top: -83%
+    background transparent
+    border-radius 100%
+    box-shadow 0 0 0 100em $temperature-bgcolor
+    border-bottom 10px solid rgba(60,99,125,0.13)
+    transition all 1s ease-in
+
+// This mixin is used when Haru is sad
+frown()
+  &:before
+    background #fbfbfb
+    border-radius 100%
+    top 2em
+    left -5em
+    box-shadow 0px -11px 3px -4px rgba(101, 101, 101, 0.18)
+    transition background 1s ease-in
+
+// This class is added to make Haru blush usualy use when he is hot or sad. (Can be used when he gets shy :p )
+blush()
+  height 8em
+  opacity 1
+  transition all 5s ease
+  &:before,
+  &:after
+    content ''
+    background radial-gradient(ellipse at center, rgba(244, 142, 185, 0.3), rgba(250,250,250,0.1))
+    display block
+    width 10em
+    border-radius 36%
+    opacity 0.7
+
+contentContainer()
+  position absolute
+  top 40vh
+  width 100vW
+  height calc(100vh - 40vh)
+  display flex
+  flex-direction column
+  overflow hidden
+
+infoContentTxt()
+  margin-bottom 0.3em
+  font-size 1.8em
+  font-weight 200
+  line-height 1.2em
+infoContent(color)
+  color color
+  padding 2em
+  svg
+    fill color
+  h3
+    font-size 3em
+    font-weight 200
+    margin-bottom 0.5em
+  h4
+    font-size 3em
+    font-weight lighter
+  p
+    infoContentTxt()
+    &.detail
+      font-size 1.3em
+      display flex
+  a
+    color color
+    &.back
+      position absolute
+      line-height 0
+      right 5.5em
+      top 0.9em
+    &.btn
+      color $white
+  header
+    flex 1
+  section
+    flex 3
+  footer
+    flex 1
+    display flex
+    justify-content space-around
+    align-items flex-end
+    a
+      infoContentTxt()
+    .btn
+      margin 0
+      padding 0.3em 1em
+
+expand-text-detail()
+  flex 3
+  .mesure-detail
+    display flex
+    height calc(100% - 3em)
+    font-weight 100
+    font-size 2em
+    box-sizing border-box
+    flex-direction column
+
+close-text-detail()
+  flex 0
+  font-size 0
+  svg
+    height 0

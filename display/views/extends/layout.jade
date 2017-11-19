@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title= 'Haru'
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+    link(rel='icon', type='image/png', href='favicon.png')
+    link(rel='stylesheet', href='/main.css')
+
+  body.happy
+    include ../partials/face
+    block content
+
+    script(src='/js/jquery.js')
+    script(src='/js/socket.io.js')
+    script.
+      var socket = io(window.location.origin);
+
+    script(src='/js/main.js')

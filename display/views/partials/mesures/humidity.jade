@@ -1,0 +1,13 @@
+.content-mesure.humidity(ng-click='HaruCtrl.navigateMenu($event)')
+    .iconContainer
+        svg(width='100%', height='100%', viewBox='0 0 27 28')
+            g(stroke='none', stroke-width='1')
+                g()
+                    path(d='M13.7824851,26 C9.02128437,26 5,21.8168894 5,16.8646168 C5,12.6191153 10.9875706,5.31061375 12.1876193,3.88927251 L13.7824851,2 L15.3773508,3.88927251 C16.5773996,5.31061375 22.5649701,12.6191153 22.5649701,16.8646168 C22.5649701,21.8159145 18.5427109,26 13.7824851,26 L13.7824851,26 Z M13.8526141,5.3058967 C10.5202184,9.6894329 7.5390932,14.6245841 7.5390932,16.6614192 C7.5390932,20.2823109 10.4894989,23.4571023 13.8526141,23.4571023 C17.2157293,23.4571023 20.166135,20.2809753 20.166135,16.6614192 C20.166135,14.6205772 17.1850098,9.68676164 13.8526141,5.3058967 L13.8526141,5.3058967 Z')
+    .mesure-value(ng-bind="HaruCtrl.getCurrentState('humidity').value") 53 %
+    .mesure-resume(ng-bind="HaruCtrl.getCurrentState('humidity').shortAdvice")
+    .mesure-detail
+        h4(ng-bind="HaruCtrl.getCurrentState('humidity').longAdviceTitle")
+        p(ng-bind="HaruCtrl.getCurrentState('humidity').longAdvice")
+        footer
+            a.close(ng-click='HaruCtrl.closeDetail($event)') ok

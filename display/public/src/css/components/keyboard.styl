@@ -1,0 +1,66 @@
+/* Main styles */
+.keyboard
+  position relative
+  font-size 16pt
+  height 216px
+  .lowercase
+    display block
+  .lowercase,
+  .uppercase,
+  .numbers,
+  .symbols
+    position absolute
+    z-index 0
+    width 100%
+  .uppercase,
+  .numbers,
+  .symbols
+    display none
+
+  .row
+    display flex
+    justify-content space-around
+    margin 10px 3px
+    text-align center
+    &:nth-of-type(3)
+      .gray
+        &:first-of-type
+          margin-right 10px
+        &:last-of-type
+          margin-left 10px
+          &:active
+            background #fff
+
+    /* Last row */
+    &:last-of-type
+      .key
+        font-size 12pt
+        line-height 2.7em
+      .gray
+        flex 1
+        margin-right 1em
+        &:last-of-type
+          &:active
+            background #fff
+      .white
+        flex 4
+        :active
+          background #aaa
+
+/* Keys */
+.key
+  border-radius 5px
+  box-shadow 0 1px 0 #888
+  display inline-block
+  line-height 1.9em
+  height 42px
+  position relative
+
+.white
+  background #fff
+  width 32px
+
+.gray
+  background #A2A2A2
+  color #fbfbfb
+  width 42px

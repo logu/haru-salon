@@ -1,4 +1,8 @@
-extends layout
+extends extends/layout
 
 block content
-  h1 Raspberry pi kiosk mode
+  .container(page='home')
+    include partials/mesures/temperature
+    include partials/mesures/humidity
+    include partials/mesures/aq
+    // include partials/mesures/notification

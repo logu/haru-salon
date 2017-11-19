@@ -4,10 +4,6 @@ services:
     build: ./display
     command: npm run start-prod
     restart: always
-    ports:
-      - "3000:3000"
-    expose:
-      - 3000
     tty: true
 
   x11:

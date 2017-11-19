@@ -1,0 +1,17 @@
+extends ../extends/layout
+
+block content
+  .container.errorPage(face='sad')
+    p.txtRight= error.status
+    header
+      h3 Aïe bobo !
+    section
+      p
+        | Pas d'inquiétude, c'est un micro bobo de rien du tout.
+
+    footer.txtMiddle
+      a(href='/') Revenir
+    .error
+      h1= message
+      h2= error.status
+      pre #{error.stack}

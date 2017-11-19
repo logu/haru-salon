@@ -1,0 +1,48 @@
+$duration = 119s
+
+$timerSize = 150px
+$timerCenterPointSeize = 8px
+$needleColor = #efa0a0
+
+@keyframes rotate
+  100%
+    transform rotateZ(360deg)
+
+.timer__indicator
+  position relative
+  z-index 1
+  width $timerSize
+  height @width
+  margin 1.5em auto 0
+  background rgba(0, 0, 0, .05)
+  border 1px solid #999
+  border-radius 50%
+  box-shadow inset 0 0 3px rgba(0, 0, 0, .3), inset 0 0 15px rgba(0, 0, 0, .1)
+  &-arrow
+    position absolute
+    top 0
+    right 0
+    bottom 0
+    left 0
+    z-index 2
+    animation rotate 60s steps(60) infinite
+    animation-duration $duration
+    &::before
+      position absolute
+      top 3px
+      bottom 50%
+      left 50%
+      width 2px
+      margin-left 3px
+      background $needleColor
+      content ''
+    &::after
+      position absolute
+      top 50%
+      left 50%
+      width $timerCenterPointSeize
+      height @width
+      margin: -($timerCenterPointSeize/2) 0 0 -($timerCenterPointSeize/2)
+      background $needleColor
+      border-radius 100%
+      content ''

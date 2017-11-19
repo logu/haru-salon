@@ -1,0 +1,87 @@
+.onboardingContainer
+  contentContainer()
+  infoContent($temperature-color)
+  &.wifiPass
+    padding 0 2em 2em
+    h4
+      font-size 2.4em
+      line-height 1.5em
+    section
+      flex 1
+    textarea
+      width 100%
+      min-height 60px
+      height auto
+      margin 0 auto
+      padding 0.5em
+      display block
+      border-color #acb3bd
+      border-radius 2px
+      resize none
+      font-weight lighter
+      font-size 1.8em
+      text-align center
+      &.error
+        border solid 1px #e99393
+      &.success
+        border solid 1px #8ae9b3
+    .keyboard
+      flex 4
+      width 115%
+      left -1.46em
+      margin-top 3%
+      .row
+        margin 0px
+        .key
+          line-height 2.2em
+          height 50px
+          border solid 1px #eee
+        .white
+          width 100%
+        .gray
+          width 100%
+        &:nth-of-type(3)
+          .gray
+            &:first-of-type
+              margin-right 0
+            &:last-of-type
+              margin-left 0
+        &:last-of-type
+          .gray
+            margin-right 0
+            line-height 3em
+          .white
+            line-height 3
+            text-transform uppercase
+            font-weight 500
+    footer
+      justify-content space-between
+
+.step1
+  .link-bnt
+    background-color #7d7d7d
+    display block
+    padding 0.75em
+    text-align right
+    background-repeat no-repeat
+    color #fff
+    text-decoration none
+    text-transform capitalize
+    margin 0.2em auto 0
+    opacity 0.4
+  .wifi-btn
+    background-image url(../images/wifi_logo.png)
+    background-size 2em
+    background-position 0.3em 0.75em
+    width 75%
+  .wps-btn
+    background-image url(../images/wps_logo_small.png)
+    background-size 2em 2em
+    background-position 0.3em 0.3em
+    width 96%
+.wps
+  .iconHolder
+    position absolute
+    top 9.4em
+    left 6.75em
+    opacity 0.5

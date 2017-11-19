@@ -1,0 +1,119 @@
+.keyboard
+    // lowercase keyboard
+    .lowercase
+        .row
+            each key in ['a','z','e','r','t','y','u','i','o','p']
+                .key.white
+                    span= key
+        .row
+            each key in ['q','s','d','f','g','h','j','k','l','m']
+                .key.white
+                    span= key
+        .row
+            .key.gray
+                span &#x21E7;
+            each key in ['w','x','c','v','b','n']
+                .key.white
+                    span= key
+            .key.gray
+                span &#x232B;
+        .row
+            .key.gray
+                span 123
+            .key.white
+                span space
+            if enterPossible == true
+                .key.gray
+                    span ok
+    // uppercase keyboard
+    .uppercase
+        .row
+            each key in ['A','Z','E','R','T','Y','U','I','O','P']
+                .key.white
+                    span= key
+        .row
+            each key in ['Q','S','D','F','G','H','J','K','L','M']
+                .key.white
+                    span= key
+        .row
+            .key.gray
+                span &#x21E7;
+            each key in ['W','X','C','V','B','N']
+                .key.white
+                    span= key
+            .key.gray
+                span &#x232B;
+        .row
+            .key.gray
+                span 123
+            .key.white
+                span space
+            if enterPossible == true
+                .key.gray
+                    span ok
+    // numbers and symbols keyboard
+    .numbers
+        .row
+            each key in ['1','2','3','4','5','6','7','8','9','0']
+                .key.white
+                    span= key
+        .row
+            each key in ['-','/',':',';','(',')','$','&','@','"']
+                .key.white
+                    span= key
+        .row
+            .key.gray(style='font-size:10pt;line-height:3.4em;')
+                span #+=
+            .key.white
+                span .
+            .key.white
+                span ,
+            .key.white
+                span ?
+            .key.white
+                span !
+            .key.white
+                span &apos;
+            .key.gray
+                span &#x232B;
+        .row
+            .key.gray
+                span ABC
+            .key.white
+                span space
+                if enterPossible == true
+                    .key.gray
+                        span ok
+    // additional symbols keyboard
+    .symbols
+        .row
+            each key in ['[',']','{','}','#','%','^','*','+','=']
+                .key.white
+                    span= key
+        .row
+            each key in ['_','\\','|','~','\<','\>','€','£','¥','•']
+                .key.white
+                    span= key
+        .row
+            .key.gray(style='font-size:10pt;line-height:3.4em;')
+                span 123
+            .key.white
+                span .
+            .key.white
+                span ,
+            .key.white
+                span ?
+            .key.white
+                span !
+            .key.white
+                span '
+            .key.gray
+                span &#x232B;
+        .row
+            .key.gray
+                span ABC
+            .key.white
+                span space
+                if enterPossible == true
+                    .key.gray
+                        span ok
