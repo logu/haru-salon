@@ -363,6 +363,12 @@ body {
 .face {
   position: relative;
   padding-top: 100px;
+  background: #f7e3e9;
+  background: -webkit-linear-gradient(top, #f7e3e9 0%, #fff 100%);
+  background: -moz-linear-gradient(top, #f7e3e9 0%, #fff 100%);
+  background: -o-linear-gradient(top, #f7e3e9 0%, #fff 100%);
+  background: -ms-linear-gradient(top, #f7e3e9 0%, #fff 100%);
+  background: linear-gradient(to bottom, #f7e3e9 0%, #fff 100%);
 }
 .forehead {
   min-height: 3.7em;
