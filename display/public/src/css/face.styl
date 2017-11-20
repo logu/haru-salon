@@ -1,7 +1,18 @@
+.face
+  position relative
+  padding-top 100px
 .forehead
   min-height 3.7em
-
+.skin
+  background #ffd4e0
+  background -moz-linear-gradient(top, #ffd4e0 0%, #ffffff 100%)
+  background -webkit-linear-gradient(top, #ffd4e0 0%,#ffffff 100%)
+  background linear-gradient(to bottom, #ffd4e0 0%,#ffffff 100%)
+  height 39%
+  width 100vw
+  position absolute
 .hair
+  display none
   side = 160px
   position absolute
   top 0
@@ -31,12 +42,26 @@
   &:after
     content ''
     display inline-block
-    background-image radial-gradient(ellipse at 35% 30%, rgba(255,255,255,.6), rgba(255,255,255,.6) 7px, $flatGreyD 8px, $flatGreyD)
+    background-image radial-gradient(ellipse at 35% 30%, rgba(255,255,255,.6), rgba(57,59,60,1) 7px, $flatGreyD 8px, $flatGreyD)
     border-radius 100%
     width 4.3em
     height @width
+    margin 1em
   &:after
     margin-left 40px
+
+.eyes
+  text-align center
+  margin-top 0
+  display flex
+  justify-content space-around
+  width 50%
+  position absolute
+  left 50%
+  margin-left -25%
+  .single_eye
+    position relative
+    height 120px
 
 // This class is added randomly around every 3 sec to make Haru blink
 .eyeBlink
@@ -54,10 +79,12 @@
 
 
 .mouth
-  position relative
+  position absolute
   overflow hidden
-  margin-top: 40px
-  height: 89em
+  height 89em
+  left 0
+  width 100vw
+  top 255px
 
   breath()
   // This class is used to make Haru smile
@@ -98,3 +125,243 @@
     box-shadow 0 0 0 100em $notification-bgcolor
 .notification.sad .mouth:before
     background $notification-bgcolor
+
+
+
+
+//Face Properties
+$f-size = 400px
+$f-radius = 50%
+$f-margin = 4px
+
+//Eye Properties
+$e-size = 100px
+$e-top = 55px
+$e-inset = 45px
+$e-offset = 50px
+
+//Colours
+$c-happy = #7FFF7F
+$c-standard = #FFEB97
+$c-sad = #88FFFF
+$c-angry = #FF7F7F
+
+flex_defaults()
+  display flex
+  justify-content center
+  flex-wrap wrap
+  margin auto
+
+.c
+  width 100%
+  height 100%
+  @include flex_defaults()
+
+.h
+  .f
+    animation happy 8s infinite
+
+  .m
+    width 300px
+    height 80px
+    border-style solid
+    border-radius 50%
+    border-width 12px
+    border-color transparent transparent #606060 transparent
+    left 50%
+    margin-left -150px
+    top 200px
+    position absolute
+    breath()
+
+  .l-eye, .r-eye
+    top $e-top
+    &:before
+      content ''
+      display inline-block
+      background-image radial-gradient(ellipse at 35% 30%, rgba(255,255,255,.6), rgba(255,255,255,.6) 12px, $flatGreyD 15px, $flatGreyD)
+      border-radius 100%
+      width 4.3em
+      height @width
+      margin 1em
+
+.standard
+  background-color $c-standard
+
+  .f
+    animation standard 5s infinite
+
+  .l-eye, .r-eye
+    top $e-top + $e-offset
+    animation-delay 1.2s
+
+
+  .m
+    width 75px
+    height 8px
+    border-radius 8px
+    background-color #fff
+    left 63px
+    top 140px
+    position absolute
+
+.sad
+  background-color $c-sad
+
+  .f
+    animation sad 6s infinite
+
+  .l-eye, .r-eye
+    top $e-top + $e-offset
+    animation-delay 3.4s
+
+  .m
+    width 100px
+    height 50px
+    border-style solid
+    border-radius 50%
+    border-width 8px
+    border-color #fff transparent transparent transparent
+    left 43px
+    top 130px
+    position absolute
+
+.angry
+  background-color $c-angry
+
+  .l-brow
+    width 35px
+    height 8px
+    border-radius 8px
+    background-color #fff
+    left 38px
+    top 100px
+    position absolute
+    transform rotate(25deg)
+
+  .r-brow
+    width 35px
+    height 8px
+    border-radius 8px
+    background-color #fff
+    right 38px
+    top 100px
+    position absolute
+    transform rotate(-25deg)
+
+  .l-eye, .r-eye
+    top $e-top + $e-offset
+    animation-delay 4.7s
+
+  .m
+    width 100px
+    height 50px
+    border-style solid
+    border-radius 50%
+    border-width 8px
+    border-color #fff transparent transparent transparent
+    left 43px
+    top 130px
+    position absolute
+
+.hd
+  position relative
+  width $f-size
+  height $f-size
+  margin auto
+
+.l-eye, .r-eye
+  width $e-size
+  height $e-size
+  background-color #fff
+  border-radius 50%
+  position absolute
+  animation blnk 5s infinite
+
+
+.l-eye
+  left $e-inset
+
+
+.r-eye
+  right $e-inset
+
+
+
+@keyframes blnk
+  0%
+    transform scale(1, 1)
+  10%
+    transform scale(1, 1)
+  12%
+    transform scale(1, .1)
+  14%
+    transform scale(1, 1)
+  30%
+    transform scale(1, 1)
+  32%
+    transform scale(1, .1)
+  34%
+    transform scale(1, 1)
+  60%
+    transform scale(1, 1)
+  62%
+    transform scale(1, .1)
+  64%
+    transform scale(1, 1)
+
+@keyframes happy
+  0%
+    transform translate(0px, 0px)
+  10%
+    transform translate(10px, 10px)
+  20%
+    transform translate(10px, 5px)
+  30%
+    transform translate(0px, 0px)
+  60%
+    transform translate(-20px, -10px)
+  70%
+    transform translate(-10px, -15px)
+  80%
+    transform translate(-10px, -15px)
+  90%
+    transform translate(0px, 0px)
+
+@keyframes standard
+  0%
+    transform translate(0px, 0px)
+  10%
+    transform translate(-25px, 0px)
+  20%
+    transform translate(-25px, 0px)
+  30%
+    transform translate(0px, 0px)
+  60%
+    transform translate(0px, 0px)
+  70%
+    transform translate(15px, -15px)
+  80%
+    transform translate(15px, -15px)
+  90%
+    transform translate(0px, 0px)
+
+@keyframes sad
+  0%
+    transform translate(0px, 0px)
+  15%
+    transform translate(0px, 0px)
+  25%
+    transform translate(0px, -25px)
+  35%
+    transform translate(0px, -25px)
+  45%
+    transform translate(0px, 0px)
+  70%
+    transform translate(0px, 0px)
+  80%
+    transform translate(-15px, -25px)
+  90%
+    transform translate(-15px, -25px)
+  100%
+    transform translate(0px, 0px)
