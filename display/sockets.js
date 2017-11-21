@@ -7,7 +7,8 @@ sockets.init = function (server) {
         console.log('socket connected');
         // other logic
     });
-
+    
+    return io.sockets
 };
 
 module.exports = sockets;

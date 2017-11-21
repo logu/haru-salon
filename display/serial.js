@@ -1,28 +1,24 @@
+
 /* eslint-disable node/no-missing-require */
 'use strict';
 
-// Use a Readline parser
+// Open event example
 
 var SerialPort = require('serialport');
-var parsers = SerialPort.parsers;
+var port = new SerialPort('/dev/tty-usbserial1');
 
-// Use a `\r\n` as a line terminator
-var parser = new parsers.Readline({
-    delimiter: '\r\n'
+port.on('open', function () {
+    console.log('Port Opened');
 });
 
-var port = new SerialPort('/dev/tty-usbserial1', {
-    baudRate: 57600
+port.write('main screen turn on', function (err) {
+    if (err) {
+        return console.log('Error: ', err.message);
+    }
+    console.log('message written');
 });
 
-port.pipe(parser);
-
-port.on('open', function() {
-    console.log('Port open')
+port.on('data', function (data) {
+    /* get a buffer of data from the serial port */
+    console.log(data.toString());
 });
-
-parser.on('data', console.log);
-
-port.write('ROBOT PLEASE RESPOND\n');
-
-// The parser will emit any string response

@@ -19,7 +19,7 @@ RUN apt-get install -y \
     --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
 
-RUN npm install serialport@3.1.1 --build-from-source=serialport
+RUN npm install serialport --build-from-source=serialport
 
 # make port 80 available outside of the image
 EXPOSE 3000
