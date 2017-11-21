@@ -79,14 +79,14 @@ socket.on('cmd', function(msg) {
         $('.c').addClass('sad');
     }
     if(msg === 'AIR') {
-        $Hotdisplay.text('1000');
+        $Airdisplay.text('1000');
         $('.c').removeClass('h');
         $('.c').addClass('sad');
     }
     if(msg === 'OK') {
         $Hotdisplay.text('20');
         $Airdisplay.text('600');
-        $('.c').removeClass('h');
-        $('.c').addClass('sad');
+        $('.c').addClass('h');
+        $('.c').removeClass('sad');
     }
 });
