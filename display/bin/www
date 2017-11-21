@@ -11,7 +11,7 @@ var http = require('http');
 // Open event example
 
 var SerialPort = require('serialport');
-var port = new SerialPort('/dev/ttyACM0');
+var sPort = new SerialPort('/dev/ttyACM0');
 /**
  * Get port from environment and store in Express.
  */
@@ -102,18 +102,18 @@ function onListening() {
 
 
 
-port.on('open', function () {
+sPort.on('open', function () {
   console.log('Port Opened');
 });
 
-port.write('main screen turn on', function (err) {
+sPort.write('main screen turn on', function (err) {
   if (err) {
     return console.log('Error: ', err.message);
   }
   console.log('message written');
 });
 
-port.on('data', function (data) {
+sPort.on('data', function (data) {
   /* get a buffer of data from the serial port */
   if(data.toString().indexOf('RED') >= 0){
     websock.emit('cmd', 'HOT');
