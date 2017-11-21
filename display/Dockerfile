@@ -16,8 +16,7 @@ RUN apt-get install -y \
     python-pip \
     python-virtualenv \
     build-essential \
-    --no-install-recommends && \
-    rm -rf /var/lib/apt/lists/*
+    --no-install-recommends
 
 RUN npm install serialport --build-from-source=serialport
 

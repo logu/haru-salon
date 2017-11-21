@@ -5,7 +5,7 @@
 // Open event example
 
 var SerialPort = require('serialport');
-var port = new SerialPort('/dev/tty-usbserial1');
+var port = new SerialPort('/dev/ttyACM0');
 
 port.on('open', function () {
     console.log('Port Opened');
