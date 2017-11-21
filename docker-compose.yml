@@ -1,6 +1,7 @@
 version: '2'
 services:
   project:
+    privileged: true
     build: ./display
     command: npm run start-prod
     restart: always
