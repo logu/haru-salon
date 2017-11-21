@@ -20,5 +20,10 @@ port.write('main screen turn on', function (err) {
 
 port.on('data', function (data) {
     /* get a buffer of data from the serial port */
-    console.log(data.toString());
+    if(data.toString().indexOf('RED') >= 0)
+        console.log('HOT');
+    if(data.toString().indexOf('GREEN') >= 0)
+        console.log('AIR');
+    if(data.toString().indexOf('BLUE') >= 0)
+        console.log('OK');
 });

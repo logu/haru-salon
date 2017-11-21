@@ -8,7 +8,10 @@ var app = require('../app');
 var sockets = require('../sockets');
 var debug = require('debug')('haru-ihm:server');
 var http = require('http');
+// Open event example
 
+var SerialPort = require('serialport');
+var port = new SerialPort('/dev/ttyACM0');
 /**
  * Get port from environment and store in Express.
  */
@@ -91,3 +94,39 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+
+
+/* eslint-disable node/no-missing-require */
+'use strict';
+
+
+
+port.on('open', function () {
+  console.log('Port Opened');
+});
+
+port.write('main screen turn on', function (err) {
+  if (err) {
+    return console.log('Error: ', err.message);
+  }
+  console.log('message written');
+});
+
+port.on('data', function (data) {
+  /* get a buffer of data from the serial port */
+  if(data.toString().indexOf('RED') >= 0){
+    websock.emit('cmd', 'HOT');
+    console.log('HOT');
+  }
+
+  if(data.toString().indexOf('GREEN') >= 0){
+    websock.emit('cmd', 'AIR');
+    console.log('AIR');
+  }
+
+  if(data.toString().indexOf('BLUE') >= 0){
+    websock.emit('cmd', 'OK');
+    console.log('OK');
+  }
+});

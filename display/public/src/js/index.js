@@ -20,15 +20,19 @@ function eyeBlink(){
 
 function co2Up(count)
 {
-    var div_by = 100,
+    var div_by = 10,
         speed = Math.round(count / div_by),
-        $display = $('.air-quality .mesure-value'),
+        $display = $('.air-quality .mesure-value .value'),
         run_count = 1,
-        int_speed = 24;
+        int_speed = 200,
+        init_value = parseInt($display.text());
 
     var int = setInterval(function() {
         if(run_count < div_by){
-            $display.text(speed * run_count);
+            var result = init_value + (speed * run_count);
+            $display.text(result);
+            $('.c').toggleClass('h',!result >= 800)
+            $('.c').toggleClass('sad', result > 800);
             run_count++;
         } else if(parseInt($display.text()) < count) {
             var curr_count = parseInt($display.text()) + 1;
